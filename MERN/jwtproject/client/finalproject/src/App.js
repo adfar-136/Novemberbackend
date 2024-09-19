@@ -1,0 +1,22 @@
+import React from 'react'
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Signup from './Components/Signup'
+import Login from './Components/Login'
+import OppurtunitiesComponent from './Components/OppurtunitiesComponent'
+import Dashboard from './Components/Dashboard'
+import Navbar from './Components/Navbar'
+export default function App() {
+  return (
+    <div>
+      <BrowserRouter>
+      <Navbar/>
+         <Routes>
+          <Route path='/' element={<OppurtunitiesComponent/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+         </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}

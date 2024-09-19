@@ -1,0 +1,12 @@
+var fs = require("fs")
+console.log(fs)
+// console.log("1")
+// // fs.writeFileSync("adfar.txt","Hello Welcome to Backend")
+// // fs.writeFileSync("index.html","<h1>Adfar Rasheed</h1>")
+// var data = fs.readFileSync("index.html","utf-8")
+// console.log(data)
+// console.log("2")
+// fs.appendFileSync("adfar.txt"," Adfar sir")
+
+// fs.unlinkSync("adfar.txt")
+// fs.renameSync("adfar.txt","samkit.txt")
