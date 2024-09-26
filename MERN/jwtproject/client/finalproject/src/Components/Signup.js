@@ -8,7 +8,7 @@ export default function Signup() {
     const navigate = useNavigate()
     function handleSubmit(e){
         e.preventDefault()
-        Axios.post("http://localhost:4000/auth/signup",{
+        Axios.post("https://novdeploy.onrender.com/auth/signup",{
             username:username,
             email:email,
             password:password

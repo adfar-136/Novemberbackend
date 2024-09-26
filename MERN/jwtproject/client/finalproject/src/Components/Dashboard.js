@@ -5,7 +5,7 @@ export default function Dashboard() {
     const [appliedOppurtunites,setAppliedOppurtunities] = useState([])
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get("http://localhost:4000/auth/verify").then((res)=>{
+        axios.get("https://novdeploy.onrender.com/auth/verify").then((res)=>{
            if(!res.data.status){
             navigate("/login")
            } else {
@@ -17,14 +17,14 @@ export default function Dashboard() {
     },[navigate])
     const fetchAppliedOppurtunities =async()=>{
         try {
-            const response = await axios.get("http://localhost:4000/auth/applied-oppurtunities")
+            const response = await axios.get("https://novdeploy.onrender.com/auth/applied-oppurtunities")
             setAppliedOppurtunities(response.data)
         } catch (error) {
             
         }
     }
     const handleLogout=()=>{
-        axios.get("http://localhost:4000/auth/logout")
+        axios.get("https://novdeploy.onrender.com/auth/logout")
         .then((res)=>{
             if(res.data.status){
                 navigate("/login")

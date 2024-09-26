@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom'
 export default function OppurtunitiesComponent() {
     const [appliedOppurtunites,setAppliedOppurtunities] = useState([])
     useEffect(()=>{
-         fetchAppliedOppurtunities()
+         fetchAppliedOppurtunities() 
     },[])
     console.log(oppurtunitiesData)
     const fetchAppliedOppurtunities=async()=>{
         try {
-            const response = await axios.get("http://localhost:4000/auth/applied-oppurtunities")
+            const response = await axios.get("https://novdeploy.onrender.com/auth/applied-oppurtunities")
              setAppliedOppurtunities(response.data)
         } catch (error) {
             
@@ -38,11 +38,11 @@ const OppurtunityCard =({oppurtunity,appliedOppurtunites})=>{
         locations,
         duration
     } = oppurtunity
-    const isApplied = appliedOppurtunites.some((item) => item.id === id)
+    const isApplied =Array.isArray(appliedOppurtunites) && appliedOppurtunites.some((item) => item.id === id)
     console.log(isApplied)
     const applyOppurtunity=(oppurtunity)=>{
          try {
-            axios.post("http://localhost:4000/auth/apply",{oppurtunity}).then(res=>{
+            axios.post("https://novdeploy.onrender.com/auth/apply",{oppurtunity}).then(res=>{
                 console.log(res.data.message)
             }).catch(()=>{
                 navigate("/login")

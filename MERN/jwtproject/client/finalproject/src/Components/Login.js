@@ -9,7 +9,7 @@ export default function Login() {
     Axios.defaults.withCredentials = true
     function handleSubmit(e){
         e.preventDefault()
-        Axios.post("http://localhost:4000/auth/login",{
+        Axios.post("https://novdeploy.onrender.com/auth/login",{
           email:email,
           password:password
         }).then((response)=>{

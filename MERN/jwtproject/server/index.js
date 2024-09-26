@@ -4,6 +4,7 @@ const router = require("./routes/user")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 const app = express();
+const path = require("path")
 app.use(cookieParser())
 
 app.use(cors(
@@ -14,8 +15,12 @@ app.use(cors(
     }
 ))
 app.use(express.json())
-mongoose.connect("mongodb://localhost:27017/novemberAuth").then(()=>{
+mongoose.connect("mongodb+srv://adfarrasheed136:Margaret2476@cluster0.ashzien.mongodb.net/kuchbhi").then(()=>{
     console.log("Connected to MongoDB")
+})
+app.use(express.static(path.join(__dirname,'/build')))
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/build/index.html'))
 })
 app.use("/auth",router)
 app.listen(4000,()=>{

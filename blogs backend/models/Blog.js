@@ -30,9 +30,12 @@ const blogSchema = new mongoose.Schema({
     },
     upvote:{
         type:Number,
+        default:0
     },
     downvote:{
         type:Number,
+        default:0
+
     },
     votedBy:[{
         type:mongoose.Schema.Types.ObjectId,
